@@ -63,13 +63,15 @@
           </a>
         </li>
         {% endif %}
-        {% if site.data.conference.scholarship_available %}
-        <li class="menu__item">
-          <a href="{{ site.baseurl }}/scholarships.html" class="menu__button">
-            Scholarships
-          </a>
-        </li>
-        {% endif %}
+        {% unless site.data.conference.schedule_available %}
+          {% if site.data.conference.scholarship_available %}
+          <li class="menu__item">
+            <a href="{{ site.baseurl }}/scholarships.html" class="menu__button">
+              Scholarships
+            </a>
+          </li>
+          {% endif %}
+        {% endunless %}
         <li class="menu__item">
           <a href="{{ site.baseurl }}/coc.html" class="menu__button" role="menuitem">
             Code Of Conduct
